@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoaplicacion"
+    android:orientation="vertical"
+    tools:context=".login">
+
+
+    <ImageView
+        android:id="@+id/img_profile_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:contentDescription="Sin loguear"
+        android:src="@drawable/imagelogin"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="131dp" />
+
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:scrollHorizontally="false"
+        android:text="Deslogueado"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp"
+        android:text="Iniciar Sesión"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/status"
+        tools:visibility="gone" />
+
+
+    <Button
+        android:id="@+id/buttonEmpezar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/boton_degradado_uno"
+        android:text="Empezar"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <Button
+        android:id="@+id/sign_out_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/borde_redondeado"
+        android:text="Desloguearse"
+        android:textColor="@color/common_google_signin_btn_text_light_default"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/img_profile_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+
+</LinearLayout>
+
+

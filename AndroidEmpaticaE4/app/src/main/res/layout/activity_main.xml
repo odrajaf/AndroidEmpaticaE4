@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fajardo.empaticatest.MainActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutExplicativa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_google_signin_btn_text_light_default"
+        android:elevation="2dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageViewBannerExplicativo"
+            android:layout_width="308dp"
+            android:layout_height="298dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/empatica_e4_conectar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewMensajeExpli"
+            android:layout_width="281dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="8dp"
+            android:text="Pulse el botón de su pulsera durante 1s para sincronizarla"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewBannerExplicativo"
+            app:layout_constraintStart_toStartOf="@+id/imageViewBannerExplicativo" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:background="#31A8DE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonSincronizar"
+            android:layout_width="199dp"
+            android:layout_height="49dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/boton_sincronizar"
+            android:text="Sincronizar Pulsera"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewRelojSesion"
+            android:layout_width="32dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/reloj_icono" />
+
+        <TextView
+            android:id="@+id/textViewlabelReloj"
+            android:layout_width="231dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewRelojSesion"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="191dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        tools:text="status" />
+
+    <TextView
+        android:id="@+id/accel_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="13dp"
+        android:text="Eje_X"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPulsaciones" />
+
+    <TextView
+        android:id="@+id/accel_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:text="Eje_Y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accel_x" />
+
+    <TextView
+        android:id="@+id/accel_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:text="Eje_Z"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accel_y" />
+
+    <TextView
+        android:id="@+id/pulsaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:text="- lat/min"
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPulsaciones"
+        app:layout_constraintTop_toBottomOf="@+id/eda" />
+
+    <TextView
+        android:id="@+id/pulsaTendencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="32dp"
+        android:text=" "
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPulsaciones"
+        app:layout_constraintTop_toBottomOf="@+id/eda" />
+
+    <TextView
+        android:id="@+id/eda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+        android:text="- &#181;S"
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+    <ProgressBar
+        android:id="@+id/progressBarX"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="252dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewNivelBateria" />
+
+    <ProgressBar
+        android:id="@+id/progressBarY"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarX" />
+
+    <ProgressBar
+        android:id="@+id/progressBarZ"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarY" />
+
+    <ImageView
+        android:id="@+id/imageViewNivelBateria"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:srcCompat="@drawable/bateria" />
+
+    <TextView
+        android:id="@+id/textViewLabelBateria"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        android:text="Pulsera"
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewNivelBateria"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <TextView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="88dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="- "
+        android:textColor="#fff"
+        android:textSize="13sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageViewNivelBateria"
+        app:layout_constraintTop_toTopOf="@+id/imageViewNivelBateria" />
+
+
+    <ImageView
+        android:id="@+id/imageViewTemperatura"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewNivelBateria"
+        app:srcCompat="@drawable/temperatura" />
+
+    <ImageView
+        android:id="@+id/imageViewEDA"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTemperatura"
+        app:srcCompat="@drawable/skin" />
+
+    <ImageView
+        android:id="@+id/imageViewPulsaciones"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEDA"
+        app:srcCompat="@drawable/corazon" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="208dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
+        android:text="- ºC"
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTemperatura"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <TextView
+        android:id="@+id/deviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:text=" - "
+        android:textColor="#000"
+        android:textSize="24sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewLabelBateria"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:background="#31A8DE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewEstadoBluetooth"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:scaleType="fitStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
+
+        <ImageView
+            android:id="@+id/imageViewPulseraE4"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/pulsera_icono"
+            app:layout_constraintStart_toEndOf="@+id/imageViewEstadoBluetooth"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewPerfil"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPulseraE4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/historial_icono_v2" />
+
+        <ImageView
+            android:id="@+id/imageViewGraficas"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPerfil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/graficas_icono" />
+
+        <TextView
+            android:id="@+id/textViewLabelGraficas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Gráficas"
+            android:textColor="@android:color/background_light"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelPerfil"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewGraficas"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textViewLabelPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="4dp"
+            android:text="Perfil"
+            android:textColor="@android:color/background_light"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelPulsera"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPerfil" />
+
+        <TextView
+            android:id="@+id/textViewLabelPulsera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Pulsera E4"
+            android:textColor="@android:color/background_light"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelBluetooth"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPulseraE4" />
+
+        <TextView
+            android:id="@+id/textViewLabelBluetooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:text="Bluetooth"
+            android:textColor="@android:color/background_light"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewEstadoBluetooth"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
