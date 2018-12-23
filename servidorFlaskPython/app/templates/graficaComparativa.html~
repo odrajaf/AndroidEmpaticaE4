@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+
+{% block scriptHead %}
+<script>
+window.onload = function () {
+
+var graficaComparativa = new CanvasJS.Chart("graficaComparativa", {
+	animationEnabled: true,
+	title:{
+		text: "Interacción",
+		
+	},
+	toolTip: {
+		shared: true
+	},
+	axisX: {
+		title: "Tiempo",
+		labelFormatter: function (e) {
+				return CanvasJS.formatDate( e.value, "DD/MM/YYYY HH:mm:ss");}
+	},
+	axisY: {
+		title: "",
+		titleFontColor: "#4F81BC",
+		suffix : " ",
+		lineColor: "#4F81BC",
+		tickColor: "#4F81BC",
+		labelFormatter: function (e) {
+				if (e.value == 3){
+					return "Animado \n\n (excitacion emocional alta \ny variación cardiaca baja) "
+				}else if (e.value == 2){
+					return "Desanimado \n\n (excitacion emocional baja \ny variación cardiaca alta)"
+				}else if  (e.value == 1){
+					return "Cerca"
+				}else  if  (e.value == 0){
+					return "Lejos"
+				}
+				return "";
+		}
+	},
+	data: [{
+		type: "spline",  
+		name: "{{ email }}",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{% for datos in emocion %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.emocion }} },
+			{% endfor %}
+			
+		]
+	},
+	{
+		type: "spline",  
+		name: "{{ emailComp }}",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{% for datos in emocionComp %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.emocion }} },
+			{% endfor %}
+			
+		]
+	},
+	{
+		type: "line",  
+		name: "Cercania",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.#",
+		dataPoints: [
+			{% for datos in cercania %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.cercania }} },
+			{% endfor %}
+			
+		]
+	}
+
+	]
+});
+graficaComparativa.render();
+
+
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+	<!--<div style="position:absolute; z-index: 1;"><p style="color:#B00;">{{ email }}</p></div>
+	<div style="position:absolute;top:35px; z-index: 1;"><p style="color:#00B;">{{ emailComp }}</p></div>-->
+
+	<div id="graficaComparativa" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div style="height: 25px;max-width: 920px;width:100%; margin: 0px auto;background:#FFF;position:absolute;top:468px;left:125px;"></div>
+
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script type=text/javascript src="{{
+	  url_for('static', filename='js/canvasjs.min.js') }}"></script>
+
+{% endblock %}

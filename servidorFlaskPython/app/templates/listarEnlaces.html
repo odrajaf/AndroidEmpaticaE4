@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<div style="margin-left:20px;">
+	   {% if emailElegido %}
+		<!--<p>Sesiones de {{ emailElegido }}:</p>-->
+		{% for sesion in sesiones %}
+			<form action="http://localhost:5000/graficas" method="get">
+				<input id="email" name="email" type="hidden" value="{{ emailElegido }}">
+				<input id="sesion" name="sesion" type="hidden" value="{{ sesion['idSesion'] }}">
+		    		<input type="submit" value="Sesión {{ sesion['idSesion'] }} ({{ sesion['fecha'] }})">
+			 </form><br/>
+		{% endfor %}
+		 
+	   {% else %}
+		
+		<!--<p>Usuarios disponibles:</p>-->
+		    {% for email in emails %}
+			<form action="http://localhost:5000/" method="get">
+				<input id="email" name="email" type="hidden" value="{{ email }}">
+		    		<input type="submit" value="{{ email }}">
+			 </form><br/>
+		    {% endfor %}
+
+		
+	   {% endif %}
+	    
+	</div>
+{% endblock %}

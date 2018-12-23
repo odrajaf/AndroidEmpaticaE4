@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Presentaci&oacute;n Empatica E4</title>
+        {% endif %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+       setInterval(actualizarDatos, 10000);
+
+       function actualizarDatos(){
+       		$("#div1").load("http://localhost:5000/ultimaInsercion");
+       }
+});
+</script>
+    </head>
+
+
+    <body>
+	<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+        <iframe src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true" style="width:500px; height:375px;margin: 0 auto;" frameborder="0"></iframe>
+    </body>
+</html>

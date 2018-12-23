@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+
+{% block scriptHead %}
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Temperatura",
+		
+	},
+	toolTip: {
+		shared: true
+	},
+	axisX: {
+		title: "Tiempo",
+		labelFormatter: function (e) {
+				return CanvasJS.formatDate( e.value, "DD/MM/YYYY HH:mm:ss");}
+	},
+	axisY: {
+		title: "Temperatura",
+		titleFontColor: "#4F81BC",
+		suffix : " ºC",
+		lineColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	data: [{
+		type: "spline",  
+		name: "temperatura coorporal",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.# ºC",
+		dataPoints: [
+			{% for datos in temperaturas %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.temperatura }} },
+			{% endfor %}
+			
+		]
+	}]
+});
+chart.render();
+
+
+var graficaPulsaciones = new CanvasJS.Chart("graficaPulsaciones", {
+	animationEnabled: true,
+	title:{
+		text: "Pulsaciones",
+		
+	},
+	toolTip: {
+		shared: true
+	},
+	axisX: {
+		title: "Tiempo",
+		labelFormatter: function (e) {
+				return CanvasJS.formatDate( e.value, "DD/MM/YYYY HH:mm:ss");}
+	},
+	axisY: {
+		title: "Pulsaciones",
+		titleFontColor: "#4F81BC",
+		suffix : " pul/min",
+		lineColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	data: [{
+		type: "spline",  
+		name: "pulsaciones",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.# pul/min",
+		dataPoints: [
+			{% for datos in pulsacionesMinuto %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.pulsaciones }} },
+			{% endfor %}
+			
+		]
+	}]
+});
+graficaPulsaciones.render();
+
+var graficaEDA = new CanvasJS.Chart("graficaEDA", {
+	animationEnabled: true,
+	title:{
+		text: "EDA",
+		
+	},
+	toolTip: {
+		shared: true
+	},
+	axisX: {
+		title: "Tiempo",
+		labelFormatter: function (e) {
+				return CanvasJS.formatDate( e.value, "DD/MM/YYYY HH:mm:ss");}
+	},
+	axisY: {
+		title: "EDA",
+		titleFontColor: "#4F81BC",
+		suffix : " µS",
+		lineColor: "#4F81BC",
+		tickColor: "#4F81BC",
+		labelFormatter: function (e) {
+					if(e.value >= 1 && e.value < 1.2){
+						return 'Ligera exc.emocional '+e.value.toString();
+					}else if(e.value >= 4 && e.value < 4.2){
+						return 'Alta exc.emocional '+e.value.toString();
+					}else{
+						return e.value;
+					}
+				}
+	},
+	data: [{
+		type: "spline",  
+		name: " Conductividad de la piel",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.# µS",
+		dataPoints: [
+			{% for datos in EDA %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.eda }} },
+			{% endfor %}
+			
+		]
+	}]
+});
+graficaEDA.render();
+
+var graficaFuerzaACC = new CanvasJS.Chart("graficaFuerzaACC", {
+	animationEnabled: true,
+	title:{
+		text: "Movimiento",
+		
+	},
+	toolTip: {
+		shared: true
+	},
+	axisX: {
+		title: "Tiempo",
+		labelFormatter: function (e) {
+				return CanvasJS.formatDate( e.value, "DD/MM/YYYY HH:mm:ss");}
+	},
+	axisY: {
+		title: "Movimiento",
+		titleFontColor: "#4F81BC",
+		suffix : " (g)",
+		lineColor: "#4F81BC",
+		tickColor: "#4F81BC",
+		labelFormatter: function (e) {
+					if(e.value > -1.6 && e.value < -1.2){
+						return 'Ejercicio Moderado '+e.value.toString();
+					}else if(e.value < -0.5 && e.value > -0.7){
+						return 'Realizando Ejercicio '+e.value.toString();
+					}else{
+						return e.value;
+					}
+				}
+	},
+	data: [{
+		type: "spline",  
+		name: "Fuerza contina (g)",
+		xValueFormatString: "DD/MM/YYYY HH:mm:ss",
+		yValueFormatString: "#,##0.# g",
+		dataPoints: [
+			{% for datos in FuerzaACC %}
+			    { x:new Date({{ datos.fecha }}) , y: {{ datos.movimientoAcc }} },
+			{% endfor %}
+			
+		]
+	}]
+});
+graficaFuerzaACC.render();
+
+
+}
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+
+	<!--<div style="position:absolute; z-index: 1;"><p>{{ email }}</p></div>-->
+
+	<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;z-index: -1"></div>
+	<div class="tapaBanner" style="height: 25px;max-width: 920px;width:100%; margin: 0px auto;background:#FFF;position:absolute;top:468px;"></div>
+
+	<div id="graficaPulsaciones" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div class="tapaBanner" style="height: 25px;max-width: 920px;width:100%; margin: 0px auto;background:#FFF;position:absolute;top:838px;"></div>
+
+	<div id="graficaEDA" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div class="tapaBanner" style="height: 25px;max-width: 920px;width:100%; margin: 0px auto;background:#FFF;position:absolute;top:1208px;"></div>
+
+	<div id="graficaFuerzaACC" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+	<div class="tapaBanner" style="height: 25px;max-width: 920px;width:100%; margin: 0px auto;background:#FFF;position:absolute;top:1578px;"></div>
+
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script type=text/javascript src="{{
+	  url_for('static', filename='js/canvasjs.min.js') }}"></script>
+
+{% endblock %}

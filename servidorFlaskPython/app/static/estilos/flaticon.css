@@ -1,0 +1,133 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 20/09/2017 07:55
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-honey:before { content: "\f100"; }
+.flaticon-cereals:before { content: "\f101"; }
+.flaticon-steak-fish:before { content: "\f102"; }
+.flaticon-ham:before { content: "\f103"; }
+.flaticon-big-tomato:before { content: "\f104"; }
+.flaticon-healthy-breakfast:before { content: "\f105"; }
+.flaticon-corn-1:before { content: "\f106"; }
+.flaticon-food-24:before { content: "\f107"; }
+.flaticon-fruit-8:before { content: "\f108"; }
+.flaticon-fruit-7:before { content: "\f109"; }
+.flaticon-fruit-6:before { content: "\f10a"; }
+.flaticon-food-23:before { content: "\f10b"; }
+.flaticon-food-22:before { content: "\f10c"; }
+.flaticon-fruit-5:before { content: "\f10d"; }
+.flaticon-food-21:before { content: "\f10e"; }
+.flaticon-food-20:before { content: "\f10f"; }
+.flaticon-food-19:before { content: "\f110"; }
+.flaticon-drink-3:before { content: "\f111"; }
+.flaticon-bananas:before { content: "\f112"; }
+.flaticon-orange:before { content: "\f113"; }
+.flaticon-carrot-hand-drawn-vegetable:before { content: "\f114"; }
+.flaticon-food-stick-or-skewer:before { content: "\f115"; }
+.flaticon-salad:before { content: "\f116"; }
+.flaticon-vegetarian-food:before { content: "\f117"; }
+.flaticon-corn:before { content: "\f118"; }
+.flaticon-carrot:before { content: "\f119"; }
+.flaticon-can:before { content: "\f11a"; }
+.flaticon-aubergine:before { content: "\f11b"; }
+.flaticon-olives:before { content: "\f11c"; }
+.flaticon-hot-pepper:before { content: "\f11d"; }
+.flaticon-fruit-4:before { content: "\f11e"; }
+.flaticon-shape:before { content: "\f11f"; }
+.flaticon-food-18:before { content: "\f120"; }
+.flaticon-food-17:before { content: "\f121"; }
+.flaticon-drink-2:before { content: "\f122"; }
+.flaticon-fruit-3:before { content: "\f123"; }
+.flaticon-food-16:before { content: "\f124"; }
+.flaticon-food-15:before { content: "\f125"; }
+.flaticon-food-14:before { content: "\f126"; }
+.flaticon-food-13:before { content: "\f127"; }
+.flaticon-food-12:before { content: "\f128"; }
+.flaticon-food-11:before { content: "\f129"; }
+.flaticon-food-10:before { content: "\f12a"; }
+.flaticon-coin:before { content: "\f12b"; }
+.flaticon-food-9:before { content: "\f12c"; }
+.flaticon-phone-call:before { content: "\f12d"; }
+.flaticon-fruit-2:before { content: "\f12e"; }
+.flaticon-padlock:before { content: "\f12f"; }
+.flaticon-home:before { content: "\f130"; }
+.flaticon-drink-1:before { content: "\f131"; }
+.flaticon-food-8:before { content: "\f132"; }
+.flaticon-food-7:before { content: "\f133"; }
+.flaticon-food-6:before { content: "\f134"; }
+.flaticon-food-5:before { content: "\f135"; }
+.flaticon-food-4:before { content: "\f136"; }
+.flaticon-food-3:before { content: "\f137"; }
+.flaticon-food-2:before { content: "\f138"; }
+.flaticon-cup-1:before { content: "\f139"; }
+.flaticon-food-1:before { content: "\f13a"; }
+.flaticon-drink:before { content: "\f13b"; }
+.flaticon-fruit-1:before { content: "\f13c"; }
+.flaticon-fruit:before { content: "\f13d"; }
+.flaticon-cup:before { content: "\f13e"; }
+.flaticon-buddhist-yoga-pose:before { content: "\f13f"; }
+.flaticon-restaurant-table-and-chairs:before { content: "\f140"; }
+.flaticon-person-running-on-a-treadmill-silhouette-from-side-view:before { content: "\f141"; }
+.flaticon-food-covered:before { content: "\f142"; }
+.flaticon-person-silhouette-in-sauna:before { content: "\f143"; }
+.flaticon-massage-session:before { content: "\f144"; }
+.flaticon-food:before { content: "\f145"; }
+.flaticon-restaurant-menu:before { content: "\f146"; }
+.flaticon-bowl-in-a-microwave:before { content: "\f147"; }
+.flaticon-salt-container:before { content: "\f148"; }
+.flaticon-chicken-plate-on-a-hand:before { content: "\f149"; }
+.flaticon-cup-black-silhouette:before { content: "\f14a"; }
+.flaticon-food-covered-tray-silhouette:before { content: "\f14b"; }
+.flaticon-cupcake-symbol:before { content: "\f14c"; }
+.flaticon-drink-glass:before { content: "\f14d"; }
+.flaticon-chicken:before { content: "\f14e"; }
+.flaticon-chef:before { content: "\f14f"; }
+.flaticon-hand-carrying-a-tea-cup-of-restaurant-service:before { content: "\f150"; }
+.flaticon-two-burning-candles:before { content: "\f151"; }
+.flaticon-restaurant:before { content: "\f152"; }
+.flaticon-restaurant-covered-plate-on-a-hand:before { content: "\f153"; }
+.flaticon-bottle-and-glass-shapes:before { content: "\f154"; }
+.flaticon-restaurant-cutlery-symbol-of-a-cross:before { content: "\f155"; }
+.flaticon-businessman-carrying-men-in-world-grid:before { content: "\f156"; }
+.flaticon-standing-balance-posture-stretching-right-leg-to-side:before { content: "\f157"; }
+.flaticon-businessman-with-password:before { content: "\f158"; }
+.flaticon-businessman-on-cloud:before { content: "\f159"; }
+.flaticon-man-standing-with-extended-arms-to-sides:before { content: "\f15a"; }
+.flaticon-100-natural-badge:before { content: "\f15b"; }
+.flaticon-running-treadmill:before { content: "\f15c"; }
+.flaticon-yoga:before { content: "\f15d"; }
+.flaticon-cutlery:before { content: "\f15e"; }
+.flaticon-meditation:before { content: "\f15f"; }
+.flaticon-woman-on-lotus-position-front-view:before { content: "\f160"; }
+.flaticon-time-planning:before { content: "\f161"; }
+.flaticon-weightlifting:before { content: "\f162"; }
+.flaticon-bicycle:before { content: "\f163"; }
+.flaticon-board-with-list:before { content: "\f164"; }
+.flaticon-restaurant-1:before { content: "\f165"; }

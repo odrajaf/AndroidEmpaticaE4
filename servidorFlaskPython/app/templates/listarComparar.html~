@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<div style="margin-left:20px;">
+	   {% if emailElegido %}
+		<!--<p>Seleccione las sesiones a comparar</p>-->
+		<form action="comparacion" method="get">
+			
+			<fieldset style="width:45%;float:left;min-height:150px;margin-bottom:20px;">
+				<legend><strong>{{ emailElegido }}</strong></legend>
+				{% for sesion in sesiones %}
+					<input type="radio" checked="checked" name="sesion" value="{{ sesion['idSesion'] }}">Sesión {{ sesion['idSesion'] }} ({{ sesion['fecha'] }})<br>
+				{% endfor %}
+				<input id="email" name="email" type="hidden" value="{{ emailElegido }}"><br/>
+			</fieldset>
+
+			<fieldset style="width:45%;float:left;min-height:150px;margin-bottom:20px;margin-left:30px;">
+				<legend><strong>{{ emailElegido2 }}</strong></legend>
+				{% for sesion in sesiones2 %}
+				   	<input type="radio" checked="checked" name="sesionComp" value="{{ sesion['idSesion'] }}">Sesión {{ sesion['idSesion'] }} ({{ sesion['fecha'] }})<br>
+				{% endfor %}
+				<input id="emailComp" name="emailComp" type="hidden" value="{{ emailElegido2 }}"><br/>
+				
+			</fieldset><br/>
+			<input type="submit" value="Comparar">
+		 </form>
+	   {% else %}
+		<!--<p>Escoge a los usuarios a comparar:</p>-->
+			
+		<form  method="get">
+			<h3>Primer Usuario:</h3>
+			<select name="email01">
+			    {% for email in emails %}
+				 
+			   	 <option value="{{ email }}">{{ email }}</option>
+			
+			    {% endfor %}
+			</select> 
+			<div style="height:35px;"><p>&nbsp;</p>
+			</div>
+			
+			<h3>Segundo Usuario:</h3>
+			<select name="email02">
+			    {% for email in emails %}
+				 
+			   	 <option value="{{ email }}">{{ email }}</option>
+			
+			    {% endfor %}
+			</select><br/><br/>
+			<div style="height:35px;"><p>&nbsp;</p>
+			</div>
+			<input type="submit" value="Continuar">
+		<form> 
+
+	   {% endif %}
+	    
+	</div>
+{% endblock %}
